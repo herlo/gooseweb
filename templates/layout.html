@@ -1,15 +1,23 @@
 <!doctype html>
 <title>GoOSe Project</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+{% set navigation_bar = [
+    ('/home','home','Home'),
+    ('/community','community','Community'),
+    ('/download','download','Download'),
+    ('/help','help','Help'),
+    ('/about','about','About')
+] -%}
+{% set active_page = active_page|default('home') -%}
 <div class=page>
   <h1>GoOSe Project</h1>
   <div class=navbar>
-    {% for href, caption in [(url_for('home'), 'Home'),
-                             (url_for('community'), 'Community'),
-                             (url_for('download'), 'Download'),
-                             (url_for('help'), 'Help'),
-                             (url_for('about'), 'About')]%}
-        <a href="{{ href }}">{{ caption }}</a> |
+    {% for href, id, caption in navigation_bar %}
+       {% if id == active_page %}
+          <span class="active_page">{{ caption|e }}</span>
+       {% else %}
+	  <a href="{{ href|e }}">{{ caption|e }}</a>
+       {% endif %}
     {% endfor %}
   </div>
   <div class=buildstatus>
