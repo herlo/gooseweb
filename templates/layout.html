@@ -1,0 +1,19 @@
+<!doctype html>
+<title>GoOSe Project</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+  <h1>GoOSe Project</h1>
+  <div class=navbar>
+    {% for href, caption in [(url_for('home'), 'Home'),
+                             (url_for('community'), 'Community'),
+                             (url_for('download'), 'Download'),
+                             (url_for('help'), 'Help'),
+                             (url_for('about'), 'About')]%}
+        <a href="{{ href }}">{{ caption }}</a> |
+    {% endfor %}
+  </div>
+  <div class=buildstatus>
+    <h2>Build Status Blah Blah Blah</h2>
+  </div>
+  {% block body %}{% endblock %}
+</div>
