@@ -1,32 +1,33 @@
 #!/usr/bin/env python
 
-#################################################################
-# Import external libraries                                     #
-#################################################################
+#----------------------------------------------------------------
+# Import external libraries
+#----------------------------------------------------------------
 from __future__ import with_statement
 #from sqlite3 import dbapi2 as sqlite3
 from contextlib import closing
 from flask import Flask, request, session, g, redirect, \
      url_for, abort, render_template, flash
 
-#################################################################
-# Configuration variables                                       #
-#################################################################
+
+#----------------------------------------------------------------
+# Configuration variables
+#----------------------------------------------------------------
 DEBUG = True
 SECRET_KEY = 'development key'
 
 
-#################################################################
-# Create our app instance                                       #
-#################################################################
+#----------------------------------------------------------------
+# Create our app instance
+#----------------------------------------------------------------
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config.from_envvar('GOOSEWEB_SETTINGS', silent=True)
 
 
-#################################################################
-# Define flask routes                                           #
-#################################################################
+#----------------------------------------------------------------
+# Define flask routes
+#----------------------------------------------------------------
 @app.route('/')
 def root():
     return redirect(url_for('home'))
@@ -51,8 +52,9 @@ def download():
 def help():
     return render_template('help.html')
 
-#################################################################
-# If we were not loaded as a module, start the app instance     #
-#################################################################
+
+#----------------------------------------------------------------
+# If we were not loaded as a module, start the app instance
+#----------------------------------------------------------------
 if __name__ == '__main__':
     app.run()
