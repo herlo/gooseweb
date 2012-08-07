@@ -9,20 +9,25 @@
     ('/help','help','Help')
 ] -%}
 {% set active_page = active_page|default('home') -%}
-<div class=page>
-  <h1>GoOSe Project</h1>
-  <div class=navbar>
+<div id=page>
+  <div id=header>
+    <h1>GoOSe Project</h1>
+  </div>
+  <ul id=navbar>
     {% for href, id, caption in navigation_bar %}
        {% if id == active_page %}
-          <span class="active_page">{{ caption|e }}</span>
+          <li class="active_page">{{ caption|e }}</li>
        {% else %}
-	  <a href="{{ href|e }}">{{ caption|e }}</a>
+	  <li><a href="{{ href|e }}">{{ caption|e }}</a></li>
        {% endif %}
     {% endfor %}
-  </div>
+  </ul>
   <div class=buildstatus>
     <h2>Build Status Blah Blah Blah</h2>
   </div>
   <hr /><br />
   {% block body %}{% endblock %}
+  <div class=footer>
+    Copyright &copy 2012, The Goose Linux Project Team
+  </div>
 </div>
