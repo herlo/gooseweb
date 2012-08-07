@@ -36,15 +36,13 @@ h2                { font-size: 1.2em; }
 
 
 /* Main content style */
-.main             { float: left; width: 512px; 
-                    border-right: 1px solid #377BA8; }
+#main             { float: left; width: 512px; }
 
 /* Side bar style */
-.sidebar          { float: right; width 512px;
-                    border-left: 1px solid #377BA8;  }
+#sidebar          { float: right; width 512px; }
 
 /* Footer style */
-.footer           { clear: both; background: #B9B9B9; }
+#footer           { clear: both; background: #B9B9B9; }
 
 /* Flash message style */
 .flash            { background: #CEE5F5; padding: 0.5em;
