@@ -3,10 +3,10 @@
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 {% set navigation_bar = [
     ('/home','home','Home'),
+    ('/about','about','About'),
     ('/community','community','Community'),
     ('/download','download','Download'),
-    ('/help','help','Help'),
-    ('/about','about','About')
+    ('/help','help','Help')
 ] -%}
 {% set active_page = active_page|default('home') -%}
 <div class=page>
@@ -23,5 +23,6 @@
   <div class=buildstatus>
     <h2>Build Status Blah Blah Blah</h2>
   </div>
+  <hr /><br />
   {% block body %}{% endblock %}
 </div>
