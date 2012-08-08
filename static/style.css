@@ -11,15 +11,16 @@ h1                { border-bottom: 2px solid #eee; }
 h2                { font-size: 1.2em; }
 
 /* Page style */
-#page             { margin: 2em auto; padding: 0.8em;
-                    width: 1024px; background: white; }
+#page             { margin: 0 auto; padding: 0.8em;
+                    width: 1024px; background: white; 
+		    border: 1px solid gray; }
 
 
 /* Header style */
-#header           { padding: 10px; background: white; }
+#header           { padding: 5px; background: white; }
 
 /* Navigation bar style */
-#navbar           { padding: 10px; background: #377BA8;
+#navbar           { padding: 5px; background: #377BA8;
                     font-family: sans-serif; font-weight: bold;
 		    color: white; }
 #navbar a         { color: white; }
@@ -29,17 +30,19 @@ h2                { font-size: 1.2em; }
 #navbar a:hover   { text-decoration: underline; color: white; }
 
 #navbar ul        { margin: 0; padding: 0; list-style: none; }
-#navbar li        { display: inline; margin: 0; padding: 0; }
+#navbar li        { display: inline; margin: 5px ; padding: 0; }
 
-/* Change color of active page button */
-.active_page      { background: white; color: #377BA8; }
+/* Change color for button of active page */
+.pressed_button   { background: white; color: #377BA8; }
 
 
 /* Main content style */
-#main             { float: left; width: 512px; }
+#main             { float: left; width: 510px; 
+		    margin-right: 5px; }
 
 /* Side bar style */
-#sidebar          { float: right; width 512px; }
+#sidebar          { float: right; width: 504px; 
+		    margin-left: 5px; }
 
 /* Footer style */
 #footer           { clear: both; background: #B9B9B9; }

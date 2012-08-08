@@ -16,7 +16,7 @@
   <ul id=navbar>
     {% for href, id, caption in navigation_bar %}
        {% if id == active_page %}
-          <li class="active_page">{{ caption|e }}</li>
+          <li class="pressed_button">{{ caption|e }}</li>
        {% else %}
 	  <li><a href="{{ href|e }}">{{ caption|e }}</a></li>
        {% endif %}
