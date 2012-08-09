@@ -8,6 +8,7 @@ from __future__ import with_statement
 from contextlib import closing
 from flask import Flask, request, session, g, redirect, \
      url_for, abort, render_template, flash
+import feedparser
 
 
 #----------------------------------------------------------------

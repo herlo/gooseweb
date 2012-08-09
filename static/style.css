@@ -7,7 +7,6 @@
 body              { font-family: sans-serif; background: #eee; }
 a, h1, h2         { color: #377BA8; }
 h1, h2            { font-family: 'Georgia', serif; margin: 0; }
-h1                { border-bottom: 2px solid #eee; }
 h2                { font-size: 1.2em; }
 
 /* Page style */
@@ -17,7 +16,9 @@ h2                { font-size: 1.2em; }
 
 
 /* Header style */
-#header           { padding: 5px; background: white; }
+#header           { padding: 0; background: white; }
+#header ul        { margin: 0; padding: 0;  list-style: none; }
+#header li        { display: inline; margin-left: 3px; padding: 0; }
 
 /* Navigation bar style */
 #navbar           { padding: 5px; background: #377BA8;
@@ -30,11 +31,13 @@ h2                { font-size: 1.2em; }
 #navbar a:hover   { text-decoration: underline; color: white; }
 
 #navbar ul        { margin: 0; padding: 0; list-style: none; }
-#navbar li        { display: inline; margin: 5px ; padding: 0; }
+#navbar li        { display: inline; margin: 5px; padding: 0; }
 
 /* Change color for button of active page */
 .pressed_button   { background: white; color: #377BA8; }
 
+/* Build Status style */
+#buildstatus      { border-bottom: 2px solid #eee; margin-bottom: 1em; }
 
 /* Main content style */
 #main             { float: left; width: 510px; 

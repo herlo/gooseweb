@@ -11,7 +11,11 @@
 {% set active_page = active_page|default('home') -%}
 <div id=page>
   <div id=header>
-    <h1>GoOSe Project</h1>
+    <h1><ul>
+	<li><img src="{{ url_for('static', filename='goose-logo24.png') }}"
+		 alt="logo" height="24" width="24" /></li>
+	<li>GoOSe Project</li>
+    </ul></h1>
   </div>
   <ul id=navbar>
     {% for href, id, caption in navigation_bar %}
@@ -23,9 +27,8 @@
     {% endfor %}
   </ul>
   <div id="buildstatus">
-    <h2>Build Status Blah Blah Blah</h2>
+    <h2>Build Status:</h2> <i>Not yet implemented...</i>
   </div>
-  <hr /><br />
   {% block body %}{% endblock %}
   <div id="footer">
     Copyright &copy 2012, The Goose Linux Project Team
