@@ -47,6 +47,9 @@ h2                { font-size: 1.2em; }
 #sidebar          { float: right; width: 504px; 
 		    margin-left: 5px; }
 
+/* Post author highlight */
+.post_author      { color: white; background: #0099FF; }
+
 /* Footer style */
 #footer           { clear: both; background: #B9B9B9; }
 
