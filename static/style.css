@@ -5,9 +5,10 @@
 
 /* Global styles */
 body              { font-family: sans-serif; background: #eee; }
-a, h1, h2         { color: #377BA8; }
-h1, h2            { font-family: 'Georgia', serif; margin: 0; }
+a, h1, h2, h3     { color: #377BA8; }
+h1, h2, h3        { font-family: 'Georgia', serif; margin: 0; }
 h2                { font-size: 1.2em; }
+h3                { font-size: 1em; }
 
 /* Page style */
 #page             { margin: 0 auto; padding: 0.8em;
@@ -47,8 +48,13 @@ h2                { font-size: 1.2em; }
 #sidebar          { float: right; width: 504px; 
 		    margin-left: 5px; }
 
-/* Post author highlight */
-.post_author      { color: white; background: #0099FF; }
+/* Highlight post information */
+.post_info        { width: 100%; background-color: #377BA8; }
+.post_info td     { color: white; background-color: #377BA8; 
+	            border 0; font-weight: bold; }
+
+/* (Full Article) small text link */
+.full_link             { font-size: .7em; color: #377BA8; }
 
 /* Footer style */
 #footer           { clear: both; background: #B9B9B9; }

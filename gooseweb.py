@@ -18,6 +18,8 @@ import os
 DEBUG = True
 SECRET_KEY = 'development key'
 POSTSFILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates/postsfile.html')
+POSTSLIMIT = 5 #number of blog posts to display on newsfeed sidebar
+WORDLIMIT = 150 #number of words to limit to restrict blog post snippets
 
 
 #----------------------------------------------------------------
@@ -43,17 +45,36 @@ def home():
     # open temp postsfile for writing
     postsfile = open(POSTSFILE, 'w')
     
+    # limit number of posts shown by POSTSLIMIT
+    # unless actual number of posts are less than that
+    plimit = POSTSLIMIT
+    if len(feed.entries) < POSTSLIMIT:
+        plimit = len(feed.entries)
+
     # format each post for placement on the home page
-    for entry in feed.entries:
-        postsfile.write('<span class="post_author">')
-        postsfile.write(unicode(entry.author).encode('utf8'))
-        postsfile.write('</span>')
-        postsfile.write('<h3>')
-        postsfile.write(unicode(entry.title).encode('utf8'))
-        postsfile.write('</h3>')
-        postsfile.write(entry.updated)  #or update-parsed
-        postsfile.write(unicode(entry.content[0].value).encode('utf8'))
-        postsfile.write(entry.link)
+    for p in range(0,plimit):
+        postsfile.write('<p><div class="post_info">')
+        postsfile.write('<table width="100%"><tr><td>')
+        postsfile.write(unicode(feed.entries[p].author).encode('utf8'))
+        postsfile.write('</td><td align="right">')
+        postsfile.write(feed.entries[p].updated.split('T')[0])
+        postsfile.write('</td></tr></table></div>')
+        postsfile.write('<h3><a href="')
+        postsfile.write(feed.entries[0].link)
+        postsfile.write('">')
+        postsfile.write(unicode(feed.entries[p].title).encode('utf8'))
+        postsfile.write('</a></h3>')
+        """postwords = unicode.split(entry.content[0].value)
+        wlimit = WORDLIMIT
+        if len(postwords) < 150:
+            wlimit = len(postwords)
+        for x in range (0,limit):
+            postsfile.write(unicode(postwords[x]).encode('utf8'))
+            postsfile.write(' ')"""
+        postsfile.write(unicode(feed.entries[p].content[0].value).encode('utf8'))
+        postsfile.write('... <span class="full_link"><a href="')
+        postsfile.write(feed.entries[0].link)
+        postsfile.write('">(Full Article)</a></span></p>')
 
     postsfile.close()
 
