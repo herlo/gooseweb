@@ -71,7 +71,23 @@ def home():
         for x in range (0,limit):
             postsfile.write(unicode(postwords[x]).encode('utf8'))
             postsfile.write(' ')"""
-        postsfile.write(unicode(feed.entries[p].content[0].value).encode('utf8'))
+
+
+        # ian bicking is awesome
+        # http://stackoverflow.com/questions/2649751/python-remove-everything-between-div-class-comment-any-div
+        from lxml import html
+
+        content = unicode(feed.entries[p].content[0].value).encode('utf8')
+
+        doc = html.fromstring(content)
+        for el in doc.cssselect('img'):
+            el.drop_tree()
+        for el in doc.cssselect('div'):
+            el.drop_tree()
+        entries = html.tostring(doc)
+
+
+        postsfile.write(entries[:200])
         postsfile.write('... <span class="full_link"><a href="')
         postsfile.write(feed.entries[0].link)
         postsfile.write('">(Full Article)</a></span></p>')
